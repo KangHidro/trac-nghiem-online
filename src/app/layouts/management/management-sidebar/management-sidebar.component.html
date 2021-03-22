@@ -1,19 +1,13 @@
-<div class="logo"></div>
+<div class="logo text-white text-center logo-text-font">
+  <b>MANAGEMENT</b>
+</div>
 <ul nz-menu nzTheme="dark" nzMode="inline">
-  <li nz-menu-item>
+  <li nz-menu-item [routerLink]="['/management/trac-nghiem']">
+    <i nz-icon nzType="database"></i>
+    <span>QL Câu hỏi</span>
+  </li>
+  <li nz-menu-item [routerLink]="['/management/nguoi-dung']">
     <i nz-icon nzType="user"></i>
-    <span>nav 1</span>
-  </li>
-  <li nz-menu-item>
-    <i nz-icon nzType="video-camera"></i>
-    <span>nav 2</span>
-  </li>
-  <li nz-menu-item>
-    <i nz-icon nzType="upload"></i>
-    <span>nav 3</span>
-  </li>
-  <li nz-menu-item>
-    <i nz-icon nzType="user"></i>
-    <span>nav 4</span>
+    <span>QL Người dùng</span>
   </li>
 </ul>
