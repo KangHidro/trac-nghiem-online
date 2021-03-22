@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(request);
     }
     // debugger;
-    if (this.authenticateService.getAuthUser() !== null) {
+    if (this.authenticateService.getAuthData() !== null) {
       return next.handle(this.addTokenUser(request)).pipe(
         catchError(
           err =>
@@ -36,7 +36,7 @@ export class AuthInterceptor implements HttpInterceptor {
         )
       );
     } else {
-      if (this.authenticateService.getAuthAdmin() !== null) {
+      if (this.authenticateService.getAuthData() !== null) {
         return next.handle(this.addToken(request)).pipe(
           catchError(
             err =>
@@ -48,7 +48,7 @@ export class AuthInterceptor implements HttpInterceptor {
           )
         );
       } else {
-        if (this.authenticateService.getAuthUser() === null) {
+        if (this.authenticateService.getAuthData() === null) {
           return next.handle(request).pipe(
             catchError(
               err =>
@@ -67,7 +67,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private addToken(request: HttpRequest<any>): HttpRequest<any> {
     return request.clone({
       setHeaders: {
-        Authorization: `Bearer ${this.authenticateService.getAuthAdmin().token}`
+        Authorization: `Bearer ${this.authenticateService.getAuthData().token}`
       }
     });
   }
@@ -75,7 +75,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private addTokenUser(request: HttpRequest<any>): HttpRequest<any> {
     return request.clone({
       setHeaders: {
-        Authorization: `Bearer ${this.authenticateService.getAuthUser().token}`
+        Authorization: `Bearer ${this.authenticateService.getAuthData().token}`
       }
     });
   }

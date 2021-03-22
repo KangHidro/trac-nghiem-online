@@ -19,7 +19,7 @@ export class UserGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     try {
-      if (this.authService.getAuthUser()) {
+      if (this.authService.getAuthData()) {
         if (this.authService.checkRoleUser()) {
           return of(true);
         }

@@ -13,7 +13,6 @@ import { HandlerErrorService } from '../common/handler-error.service';
   providedIn: 'root'
 })
 export class AuthenticateService {
-  private apiUrlAdmin: string;
   private apiUrl: string;
 
   constructor(
@@ -21,61 +20,7 @@ export class AuthenticateService {
     private router: Router,
     private handleErrorService: HandlerErrorService
   ) {
-    this.apiUrlAdmin = UrlConstant.API.LOGIN;
     this.apiUrl = UrlConstant.API.LOGIN;
-  }
-
-  // ADMIN
-  // login admin google
-  doLoginAdminGoogle(token: string): Observable<ResponseItem<AuthModel>> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        GoogleToken: token
-      })
-    };
-
-    return this.http
-      .post<ResponseItem<AuthModel>>(this.apiUrlAdmin + `/google`, null, httpOptions)
-      .pipe(catchError(this.handleErrorService.handleError));
-  }
-
-  // login username/pass
-  doLoginAdminForm(model): Observable<AuthModel> {
-    return this.http
-      .post<AuthModel>(this.apiUrlAdmin, model)
-      .pipe(catchError(this.handleErrorService.handleError));
-  }
-
-  // logout
-  doLogoutAdmin(): void {
-    localStorage.removeItem(SystemConstant.CURRENT_ADMIN);
-    localStorage.removeItem(SystemConstant.CURRENT_ADMIN_INFO);
-    this.router.navigate([UrlConstant.ROUTE.LOGIN]);
-  }
-
-  // get/set localStorage email
-  getTokenAdmin(): string {
-    return JSON.parse(localStorage.getItem(SystemConstant.CURRENT_ADMIN));
-  }
-
-  setTokenAdmin(email: string): void {
-    localStorage.setItem(
-      SystemConstant.CURRENT_ADMIN,
-      JSON.stringify(email)
-    );
-  }
-
-  // set/ get localStorage model Auth
-  getAuthAdmin(): AuthModel {
-    return JSON.parse(localStorage.getItem(SystemConstant.CURRENT_ADMIN_INFO));
-  }
-
-  setAuthAdmin(model): void {
-    localStorage.setItem(
-      SystemConstant.CURRENT_ADMIN_INFO,
-      JSON.stringify(model)
-    );
   }
 
   // USER
@@ -127,11 +72,11 @@ export class AuthenticateService {
   }
 
   // set/ get localStorage model Auth
-  getAuthUser(): AuthModel {
+  getAuthData(): AuthModel {
     return JSON.parse(localStorage.getItem(SystemConstant.CURRENT_USER_INFO));
   }
 
-  setAuthUser(model): void {
+  setAuthData(model): void {
     localStorage.setItem(
       SystemConstant.CURRENT_USER_INFO,
       JSON.stringify(model)
@@ -157,7 +102,7 @@ export class AuthenticateService {
 
   // check roles
   checkRoleAdmin(): boolean {
-    const auth = this.getAuthAdmin();
+    const auth = this.getAuthData();
     let role = [];
     role = auth.roles.filter(item => item === SystemConstant.ROLE.ADMIN);
     if (role && role.length > 0) {
@@ -168,7 +113,7 @@ export class AuthenticateService {
   }
 
   checkRoleUser(): boolean {
-    const auth = this.getAuthUser();
+    const auth = this.getAuthData();
     let role = [];
     role = auth.roles.filter(item => item === SystemConstant.ROLE.USER);
     if (role && role.length > 0) {

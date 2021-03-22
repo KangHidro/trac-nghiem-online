@@ -1,22 +1,20 @@
 import { environment } from 'src/environments/environment';
 
 export const UrlConstant = {
-    API: {
-      // Main
-      LOGIN: environment.serverUrl + 'rest/login',
+  API: {
+    // Main
+    LOGIN: environment.serverUrl + 'rest/login',
 
-      // Catalog
-      AAAAA: environment.serverUrl + 'rest/aaaaa',
+  },
 
+  ROUTE: {
+    LOGIN: '/login',
+    MAIN: {
+      HOME: '/home',
     },
-
-    ROUTE: {
-        LOGIN: '/login',
-        MAIN: {
-            HOME: '/home',
-        },
-        MANAGEMENT: {
-            DASHBOARD: '/management/dashboard',
+    MANAGEMENT: {
+      TRAC_NGHIEM: '/management/trac-nghiem',
+      NGUOI_DUNG: '/management/nguoi-dung',
     },
   }
 };

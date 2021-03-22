@@ -16,9 +16,9 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.authSvc.getTokenAdmin()) {
+    if (this.authSvc.checkRoleAdmin()) {
       this.isLoginAdmin = true;
-    } else if (this.authSvc.getTokenUser()) {
+    } else if (this.authSvc.checkRoleUser()) {
       this.isLoginUser = true;
     }
   }

@@ -20,6 +20,6 @@ export class ManagementHeaderComponent implements OnInit {
   }
 
   doLogout(): void {
-    this.authService.doLogoutAdmin();
+    this.authService.doLogoutUser();
   }
 }
