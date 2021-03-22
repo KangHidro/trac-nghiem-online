@@ -1,1 +1,35 @@
-<p>list-trac-nghiem works!</p>
+<div nz-row [nzGutter]="16" class="mr-bot-10 text-center">
+  <div nz-col nzSpan="24">
+    <h2>NGÂN HÀNG CÂU HỎI</h2>
+  </div>
+</div>
+<div nz-row [nzGutter]="16" class="mr-bot-10">
+  <div nz-col nzSpan="24" class="text-right mr-bot-5">
+    <button nz-button nzType="primary" type="button" (click)="openFormCreateTracNghiem(formTracNghiem)">
+      <i class="fas fa-plus mr-right-5"></i>Thêm câu hỏi
+    </button>
+  </div>
+  <div nz-col nzSpan="24">
+    <nz-table #dataTable nzBordered [nzData]="[]">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of []">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <!-- <table-paginate></table-paginate> -->
+  </div>
+</div>
+
+<ng-template #formTracNghiem>
+  <app-form-trac-nghiem></app-form-trac-nghiem>
+</ng-template>

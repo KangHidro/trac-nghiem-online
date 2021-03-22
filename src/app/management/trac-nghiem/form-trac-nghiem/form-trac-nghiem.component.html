@@ -1,1 +1,40 @@
-<p>form-trac-nghiem works!</p>
+<form [formGroup]="form">
+  <div nz-row [nzGutter]="16" class="mr-bot-10">
+    <div nz-col nzSpan="24">
+      <h2>Câu hỏi</h2>
+    </div>
+    <div nz-col nzSpan="24">
+      <ckeditor [config]="cfgEditor" [editor]="editor" formControlName="cauHoi"></ckeditor>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16" class="mr-bot-10">
+    <div nz-col nzSpan="24">
+      <h2>Đáp án lựa chọn</h2>
+    </div>
+    <div nz-col nzSpan="24" class="text-right">
+      <button nz-button nzType="primary" type="button" nzSize="small" (click)="themDapAn()"><i class="fas fa-plus mr-right-5"></i>Thêm đáp án</button>
+    </div>
+    <div nz-col nzSpan="24">
+      <nz-table #dataTable nzBordered [nzData]="listDapAnTemp" nzShowPagination="false">
+        <thead>
+          <tr>
+            <th nzWidth="10%" nzAlign="center">Đúng?</th>
+            <th nzWidth="80%" nzAlign="center">Nội dung</th>
+            <th nzWidth="10%" nzAlign="center"><i class="fas da-cog"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dapAn of listDapAnTemp; let i = index">
+            <td nzWidth="10%" nzAlign="center">
+              <label nz-checkbox [(ngModel)]="dapAn.dapAnDung" (ngModelChange)="changeDapAnDung(i)" [ngModelOptions]="{standalone: true}"></label>
+            </td>
+            <td nzWidth="80%" nzAlign="center">
+              <input nz-input type="text" class="w-100" [(ngModel)]="dapAn.noiDungCauTraLoi" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td nzWidth="10%" nzAlign="center"><i class="fas fa-trash text-red pointer" (click)="xoaDapAn(i)"></i></td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</form>

@@ -17,8 +17,8 @@
     <p [innerHTML]="listCauHoi[currentIndex]?.cauHoi"></p>
   </div>
   <div nz-col [nzSpan]="12" *ngFor="let dapAn of listCauHoi[currentIndex]?.dapAns">
-    <button class="w-100" nz-button [nzType]="listCauHoi[currentIndex]?.dapAnUserSelected === dapAn.idDapAn ? 'primary' : 'default'" (click)="listCauHoi[currentIndex].dapAnUserSelected=dapAn.idDapAn">
-      <span>{{dapAn.noiDungDapAn}}</span>
+    <button class="w-100" nz-button [nzType]="listCauHoi[currentIndex]?.dapAnUserSelected === dapAn.noiDungCauTraLoi ? 'primary' : 'default'" (click)="listCauHoi[currentIndex].dapAnUserSelected=dapAn.noiDungCauTraLoi">
+      <span>{{dapAn.noiDungCauTraLoi}}</span>
     </button>
   </div>
 </div>

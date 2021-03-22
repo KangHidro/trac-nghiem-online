@@ -16,4 +16,58 @@ export class SystemConstant {
     ADMIN: 'ROLE_ADMIN',
     USER: 'ROLE_USER',
   };
+
+  public static CKEDITOR_CFG = {
+    fontNames: ['Arial', 'Times New Roman', 'Courier New', 'sans-serif'],
+    placeholder: '',
+    tabsize: '2',
+    toolbar: [
+      'heading',
+      'removeFormat',
+      'fontFamily',
+      'fontSize',
+      'fontColor',
+      'fontBackgroundColor',
+      '|',
+      'bold',
+      'italic',
+      'underline',
+      'alignment',
+      '|',
+      'imageInsert',
+      'insertTable',
+      'mediaEmbed',
+      'bulletedList',
+      'numberedList',
+      'link',
+      '|',
+      'indent',
+      'outdent',
+      '|',
+      'subscript',
+      'superscript',
+      'strikethrough',
+      'code',
+      'codeBlock',
+      'exportPdf',
+      'exportWord'
+    ],
+    image: {
+      toolbar: [
+        'imageTextAlternative',
+        'imageStyle:full',
+        'imageStyle:side'
+      ]
+    },
+    table: {
+      contentToolbar: [
+        'tableColumn',
+        'tableRow',
+        'mergeTableCells',
+        'tableCellProperties',
+        'tableProperties'
+      ]
+    }
+  };
+
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { CauHoiModel } from 'src/app/core/models/main/cau-hoi.model';
+import { CauHoiTracNghiem } from 'src/app/core/models/main/cau-hoi.model';
 import { CauHoiService } from 'src/app/core/services/main/cau-hoi.service';
 
 @Component({
@@ -10,20 +10,18 @@ import { CauHoiService } from 'src/app/core/services/main/cau-hoi.service';
 })
 export class LamTracNghiemComponent implements OnInit {
 
-  listCauHoi: CauHoiModel[] = [
+  listCauHoi: CauHoiTracNghiem[] = [
     {
       id: '0',
       cauHoi: 'TESSSSSSSSSSSS',
-      dapAnDungId: 'A',
-      dapAns: [{idDapAn: 'A', noiDungDapAn: 'AAAA'},{idDapAn: 'B', noiDungDapAn: 'BBBB'}],
+      dapAns: [{dapAnDung: false, noiDungCauTraLoi: 'AAAA'},{dapAnDung: true, noiDungCauTraLoi: 'BBBB'}],
       diemSo: 1,
       dapAnUserSelected: ''
     },
     {
       id: '0',
       cauHoi: 'TESSSSSSSSSSSS',
-      dapAnDungId: 'A',
-      dapAns: [{idDapAn: 'A', noiDungDapAn: 'AAAA'},{idDapAn: 'B', noiDungDapAn: 'BBBB'}],
+      dapAns: [{dapAnDung: false, noiDungCauTraLoi: 'AAAA'},{dapAnDung: true, noiDungCauTraLoi: 'BBBB'}],
       diemSo: 1,
       dapAnUserSelected: ''
     }

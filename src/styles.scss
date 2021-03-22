@@ -22,6 +22,23 @@
 // Custom text color
 @import './assets/css/custom-text.scss';
 
+/* Global CkEditor 5 */
+/* CkE Default */
+.ck-editor__editable_inline {
+  min-height: 100px;
+  max-height: 500px;
+  overflow: scroll;
+}
+/* CkE Default */
+.cke-h50px .ck-editor__editable_inline {
+  min-height: 50px !important;
+}
+/* CkE Default */
+.cke-h200px .ck-editor__editable_inline {
+  min-height: 200px !important;
+}
+/* End Global CkEditor 5 */
+
 body {
   height: auto;
   background-image: url('./assets/img/bg.jpg');
