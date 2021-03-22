@@ -1,7 +1,7 @@
 <div class="login-container" *ngIf="!isLoginAdmin && !isLoginUser">
   <div class="login-page-btn">
     <p class="title-heading">TRẮC NGHIỆM ONLINE</p>
-    <button nz-button nzType="primary" nzDanger type="button" nzSize="large"><i
+    <button nz-button nzType="primary" nzDanger type="button" nzSize="large" (click)="onLoginWithGoogle()"><i
         class="fab fa-google mr-right-5"></i>Đăng nhập bằng Google</button>
   </div>
 </div>

@@ -43,18 +43,8 @@ export class HandlerErrorService {
   convertError(err: ResponseErrorData): void {
     this.spinner.hide();
 
-    if (this.getTokenAdmin() && this.getTokenUser()) {
+    if (this.getTokenUser()) {
       this.routerNext = UrlConstant.ROUTE.LOGIN;
-    } else {
-      if (this.getTokenAdmin()) {
-        this.routerNext = UrlConstant.ROUTE.LOGIN;
-      } else {
-        if (this.getTokenUser()) {
-          this.routerNext = UrlConstant.ROUTE.MAIN.HOME;
-        } else {
-          this.routerNext = UrlConstant.ROUTE.MAIN.HOME;
-        }
-      }
     }
 
     if (err) {
@@ -107,10 +97,6 @@ export class HandlerErrorService {
 
   doLogout(): void {
     localStorage.clear();
-  }
-
-  getTokenAdmin(): string {
-    return JSON.parse(localStorage.getItem(SystemConstant.CURRENT_ADMIN));
   }
 
   getTokenUser(): string {

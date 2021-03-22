@@ -56,7 +56,7 @@ export class AuthenticateService {
   doLogoutUser(): void {
     localStorage.removeItem(SystemConstant.CURRENT_USER);
     localStorage.removeItem(SystemConstant.CURRENT_USER_INFO);
-    this.router.navigate([UrlConstant.ROUTE.MAIN.HOME]);
+    this.router.navigate([UrlConstant.ROUTE.LOGIN]);
   }
 
   // get/set localStorage email
