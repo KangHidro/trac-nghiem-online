@@ -21,3 +21,9 @@
 
 // Custom text color
 @import './assets/css/custom-text.scss';
+
+body {
+  background-image: url('./assets/img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}

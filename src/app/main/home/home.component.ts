@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticateService } from 'src/app/core/services/auth/authenticate.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  isLoginUser = false;
+  isLoginAdmin = false;
+
+  constructor(
+    private authSvc: AuthenticateService,
+  ) { }
 
   ngOnInit(): void {
+    if (this.authSvc.getTokenAdmin()) {
+      this.isLoginAdmin = true;
+    } else if (this.authSvc.getTokenUser()) {
+      this.isLoginUser = true;
+    }
   }
 
 }

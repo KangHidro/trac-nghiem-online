@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 // layout components
 
@@ -17,7 +18,8 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    SharedModule,
   ],
   exports: [
   ],

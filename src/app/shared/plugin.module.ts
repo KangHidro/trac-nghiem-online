@@ -37,6 +37,9 @@ const NgZorroAntdModules = [
     NgxSpinnerModule,
     CKEditorModule,
   ],
+  exports: [
+    NgZorroAntdModules,
+  ],
   providers: []
 })
 export class PluginModule { }
