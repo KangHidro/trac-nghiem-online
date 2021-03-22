@@ -7,6 +7,7 @@ import { AuthModule } from '../auth/auth.module';
 import { ThongTinCaNhanComponent } from './thong-tin-ca-nhan/thong-tin-ca-nhan.component';
 import { LamTracNghiemComponent } from './lam-trac-nghiem/lam-trac-nghiem.component';
 import { CauTraLoiCuaToiComponent } from './cau-tra-loi-cua-toi/cau-tra-loi-cua-toi.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CauTraLoiCuaToiComponent } from './cau-tra-loi-cua-toi/cau-tra-loi-cua-
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     MainLayoutModule,
     MainRoutingModule,
     AuthModule,

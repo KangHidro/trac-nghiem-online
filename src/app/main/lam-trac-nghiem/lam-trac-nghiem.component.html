@@ -1,1 +1,37 @@
-<p>lam-trac-nghiem works!</p>
+<div nz-row [nzGutter]="16">
+  <div nz-col nzSpan="24" class="text-right">
+    <button nz-button [nzType]="'primary'" (click)="prevQuiz()" *ngIf="currentIndex > 0" class="mr-right-5">
+      <span>Câu trước</span>
+    </button>
+    <button nz-button [nzType]="'primary'" (click)="nextQuiz()" *ngIf="currentIndex < listCauHoi.length-1">
+      <span>Câu sau</span>
+    </button>
+    <button nz-button [nzType]="'default'" class="nz-btn-green" (click)="submitQuiz()" *ngIf="currentIndex === listCauHoi.length-1">
+      <span>Hoàn thành</span>
+    </button>
+  </div>
+</div>
+<div nz-row [nzGutter]="16" class="question-box">
+  <div nz-col nzSpan="24" class="text-left">
+    <h2>Câu hỏi {{currentIndex+1}}/{{listCauHoi.length}}.</h2>
+    <p [innerHTML]="listCauHoi[currentIndex]?.cauHoi"></p>
+  </div>
+  <div nz-col [nzSpan]="12" *ngFor="let dapAn of listCauHoi[currentIndex]?.dapAns">
+    <button class="w-100" nz-button [nzType]="listCauHoi[currentIndex]?.dapAnUserSelected === dapAn.idDapAn ? 'primary' : 'default'" (click)="listCauHoi[currentIndex].dapAnUserSelected=dapAn.idDapAn">
+      <span>{{dapAn.noiDungDapAn}}</span>
+    </button>
+  </div>
+</div>
+<div nz-row [nzGutter]="16">
+  <div nz-col nzSpan="24" class="text-right">
+    <button nz-button [nzType]="'primary'" (click)="prevQuiz()" *ngIf="currentIndex > 0" class="mr-right-5">
+      <span>Câu trước</span>
+    </button>
+    <button nz-button [nzType]="'primary'" (click)="nextQuiz()" *ngIf="currentIndex < listCauHoi.length-1">
+      <span>Câu sau</span>
+    </button>
+    <button nz-button [nzType]="'default'" class="nz-btn-green" (click)="submitQuiz()" *ngIf="currentIndex === listCauHoi.length-1">
+      <span>Hoàn thành</span>
+    </button>
+  </div>
+</div>

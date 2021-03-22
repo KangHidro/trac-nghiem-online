@@ -1,1 +1,28 @@
-<p>cau-tra-loi-cua-toi works!</p>
+<div class="data-box">
+  <div nz-row [nzGutter]="16" class="mr-bot-10 text-center">
+    <div nz-col nzSpan="24">
+      <h2>DỮ LIỆU CỦA TÔI</h2>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16" class="mr-bot-10">
+    <div nz-col nzSpan="24">
+      <nz-table #dataTable nzBordered [nzData]="[]">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of []">
+            <td>{{ data.name }}</td>
+            <td>{{ data.age }}</td>
+            <td>{{ data.address }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <!-- <table-paginate></table-paginate> -->
+    </div>
+  </div>
+</div>

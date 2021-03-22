@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-thong-tin-ca-nhan',
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThongTinCaNhanComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+
+  constructor(
+    private fbd: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
+    this.createForm();
+  }
+
+  createForm() {
+    this.form = this.fbd.group({
+      hoTen: ['', [Validators.required]]
+    });
+  }
+
+  patchValue() {
+
+  }
+
+  getThongTinCaNhan() {
+
+  }
+
+  updateThongTinCaNhan() {
+
   }
 
 }

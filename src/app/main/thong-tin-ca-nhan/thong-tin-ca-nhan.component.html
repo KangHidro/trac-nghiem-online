@@ -1,1 +1,20 @@
-<p>thong-tin-ca-nhan works!</p>
+<form [formGroup]="form" (submit)="updateThongTinCaNhan()" class="form-box">
+  <div nz-row [nzGutter]="16" class="mr-bot-10 text-center">
+    <div nz-col nzSpan="24">
+      <h2>THÔNG TIN CÁ NHÂN</h2>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16" class="mr-bot-10">
+    <div nz-col nzSpan="12">
+      Họ và tên
+    </div>
+    <div nz-col nzSpan="12">
+      <input nz-input type="text" formControlName="hoTen">
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16" class="mr-top-10">
+    <div nz-col nzSpan="24">
+      <button nz-button nzType="primary" type="submit" class="w-100">Lưu lại</button>
+    </div>
+  </div>
+</form>

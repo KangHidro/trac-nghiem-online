@@ -4,6 +4,7 @@ export class CauHoiModel {
   dapAns: DapAnModel[]; // embedded
   dapAnDungId: string;
   diemSo: number;
+  dapAnUserSelected?: string;
 }
 
 export class DapAnModel {

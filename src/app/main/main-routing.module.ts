@@ -18,11 +18,23 @@ const routes: Routes = [
   },
   {
     path: 'my-answer',
-    component: CauTraLoiCuaToiComponent
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: CauTraLoiCuaToiComponent
+      }
+    ]
   },
   {
     path: 'profile',
-    component: ThongTinCaNhanComponent
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: ThongTinCaNhanComponent
+      }
+    ]
   }
 ];
 
