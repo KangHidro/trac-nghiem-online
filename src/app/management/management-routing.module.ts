@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ManagementLayoutComponent } from '../layouts/management/management-layout/management-layout.component';
-import { NguoiDungComponent } from './nguoi-dung/nguoi-dung.component';
 
 const routes: Routes = [
   {
@@ -17,12 +16,7 @@ const routes: Routes = [
   {
     path: 'nguoi-dung',
     component: ManagementLayoutComponent,
-    children: [
-      {
-        path: '',
-        component: NguoiDungComponent
-      }
-    ]
+    loadChildren: () => import('./nguoi-dung/nguoi-dung.module').then(m => m.NguoiDungModule)
   }
 ];
 

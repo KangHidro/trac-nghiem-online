@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/nckh',
-  rootUrl: 'http://localhost:8080',
+  apiUrl: 'http://localhost:3456',
+  rootUrl: 'http://localhost:3456',
 
-  serverUrl: 'http://test-backend.stc.local:8080/nckh/',
+  serverUrl: 'http://test-backend.stc.local:3456',
 
   keyGoogle: '327819247033-r2ckkbt8vn07hdrc3cf8ksqkrln09h2h.apps.googleusercontent.com',
 };

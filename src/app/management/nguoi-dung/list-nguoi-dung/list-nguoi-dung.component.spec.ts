@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NguoiDungComponent } from './nguoi-dung.component';
+import { ListNguoiDungComponent } from './list-nguoi-dung.component';
 
-describe('NguoiDungComponent', () => {
-  let component: NguoiDungComponent;
-  let fixture: ComponentFixture<NguoiDungComponent>;
+describe('ListNguoiDungComponent', () => {
+  let component: ListNguoiDungComponent;
+  let fixture: ComponentFixture<ListNguoiDungComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NguoiDungComponent ]
+      declarations: [ ListNguoiDungComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NguoiDungComponent);
+    fixture = TestBed.createComponent(ListNguoiDungComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
