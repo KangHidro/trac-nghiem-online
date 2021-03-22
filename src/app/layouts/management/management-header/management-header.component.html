@@ -1,50 +1,14 @@
-<header id="navbar-management">
-    <div id="navbar-container" class="boxed">
-        <div class="navbar-header-management">
-            <a href="index.html" class="navbar-brand-management">
-                <img src="assets/img/logo/logo-admin.png" alt="HCMUTE LOGO" class="brand-icon">
-                <div class="brand-title">
-                    <span class="brand-text">HCMUTE</span>
-                </div>
-            </a>
-        </div>
-        <div class="navbar-content">
-            <ul class="nav navbar-top-links">
-                <li class="tgl-menu-btn">
-                    <a class="mainnav-toggle" (click)="toggleSidebar()">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </li>
-            </ul>
-            <ul class="nav navbar-top-links">
-                <li id="dropdown-user" class="dropdown">
-                    <a  data-toggle="dropdown" class="dropdown-toggle text-right">
-                        <span class="ic-user pull-right">
-                            <img class="img-circle img-user media-object" src="assets/img/user/user.png"
-                                alt="Profile Picture">
-                            <div class="username hidden-xs">
-                                <span>{{ user }}</span>
-                            </div>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right panel-default">
-                        <ul class="head-list">
-                            <li>
-                                <a href="assets/file/HDSD_XetTuyenManagement.pdf" target="_blank">
-                                    <i class="far fa-question-circle icon-lg icon-fw"></i>
-                                    HDSD PDF
-                                </a>
-                            </li>
-                            <li>
-                                <a (click)="doLogout()">
-                                    <i class="fas fa-sign-out-alt icon-lg icon-fw"></i>
-                                    Đăng xuất
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</header>
+<div class="pull-left">
+  QUẢN TRỊ WEBSITE TRẮC NGHIỆM ONLINE
+</div>
+<div class="pull-right">
+  <img src="assets/img/user.png" onerror="this.src='assets/img/user.png'" class="avatar pointer"
+  nz-dropdown [nzDropdownMenu]="menuUser">
+  <nz-dropdown-menu #menuUser="nzDropdownMenu">
+    <ul nz-menu>
+      <!-- <li nz-menu-item [routerLink]="['/profile']"><i class="fas fa-user mr-right-5"></i>Thông tin cá nhân</li> -->
+      <!-- <li nz-menu-divider></li> -->
+      <li nz-menu-item class="text-red"><i class="fas fa-power-off mr-right-5"></i>Đăng xuất</li>
+    </ul>
+  </nz-dropdown-menu>
+</div>
