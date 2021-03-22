@@ -12,8 +12,8 @@ import Editor from 'src/assets/libs/ckeditor5/build/ckeditor';
 export class FormTracNghiemComponent implements OnInit {
 
   form: FormGroup;
-  cfgEditor = SystemConstant.CKEDITOR_CFG;
   editor = Editor;
+  cfgEditor = SystemConstant.CkEditorCfg;
 
   listDapAnTemp: DapAnModel[] = [];
 

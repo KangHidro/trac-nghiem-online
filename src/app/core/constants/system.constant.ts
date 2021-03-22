@@ -17,10 +17,7 @@ export class SystemConstant {
     USER: 'ROLE_USER',
   };
 
-  public static CKEDITOR_CFG = {
-    fontNames: ['Arial', 'Times New Roman', 'Courier New', 'sans-serif'],
-    placeholder: '',
-    tabsize: '2',
+  public static CkEditorCfg = {
     toolbar: [
       'heading',
       'removeFormat',

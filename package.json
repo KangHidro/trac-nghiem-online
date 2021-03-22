@@ -22,6 +22,7 @@
     "@ckeditor/ckeditor5-angular": "^2.0.1",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "angularx-social-login": "^3.5.4",
+    "jquery": "^3.6.0",
     "ng-zorro-antd": "^10.2.2",
     "ngx-spinner": "^10.0.1",
     "ngx-toastr": "^13.2.1",
