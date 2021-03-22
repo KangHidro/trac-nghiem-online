@@ -1,0 +1,44 @@
+.ant-btn {
+  border-radius: 4px;
+}
+
+.ant-btn-primary {
+  background-color: #2e3090 !important;
+  border-color: #2e3090 !important;
+}
+
+/* Global NzButton Color */
+.nz-btn-green {
+  border: 1px solid #28a745 !important;
+  background-color: #28a745 !important;
+  color: #fff !important;
+}
+.nz-btn-green:hover,
+.nz-btn-green:focus {
+  border: 1px solid #259940 !important;
+  background-color: #259940 !important;
+  color: #fff !important;
+}
+.nz-btn-red {
+  border: 1px solid #F44336 !important;
+  background-color: #F44336 !important;
+  color: #fff !important;
+}
+.nz-btn-red:hover,
+.nz-btn-red:focus {
+  border: 1px solid #e64034 !important;
+  background-color: #e64034 !important;
+  color: #fff !important;
+}
+.nz-btn-blue {
+  border: 1px solid #007bff !important;
+  background-color: #007bff !important;
+  color: #fff !important;
+}
+.nz-btn-blue:hover,
+.nz-btn-blue:focus {
+  border: 1px solid #0072ec !important;
+  background-color: #0072ec !important;
+  color: #fff !important;
+}
+/* End Global NzButton Color */

@@ -1,0 +1,11 @@
+<div id="container" class="effect aside-float aside-bright mainnav-lg lg-mainnav-lg">
+    <app-management-header></app-management-header>
+    <div class="boxed">
+        <router-outlet></router-outlet>
+        <app-management-sidebar></app-management-sidebar>
+    </div>
+    <app-management-footer></app-management-footer>
+</div>
+<button class="scroll-top btn" [ngClass]="{'show-scroll': navIsFixed}" (click)="scrollToTop()">
+    <i class="fas fa-angle-up"></i>
+</button>

@@ -1,0 +1,28 @@
+.fk-modal-footer {
+  padding: 10px 0px 0px 0px !important;
+  margin-top: 10px;
+}
+.ant-modal-body {
+  padding: 10px 20px 15px 20px !important;
+}
+.ant-modal-header > .ant-modal-title > .ng-star-inserted {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px white !important;
+  color: #2e3192 !important;
+}
+.ant-modal-header {
+  padding: 11px 20px !important;
+  background: url("../img/bg.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+.ant-modal-close-x {
+  width: 45px !important;
+  height: 45px !important;
+  line-height: 47px !important;
+}
+.ant-modal-confirm-body > i {
+  margin-top: 6px !important;
+}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "trac-nghiem-online": {
+    "angular-main-structure": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/trac-nghiem-online",
+            "outputPath": "dist/angular-main-structure",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,10 +25,17 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": []
           },
@@ -66,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "trac-nghiem-online:build"
+            "browserTarget": "angular-main-structure:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "trac-nghiem-online:build:production"
+              "browserTarget": "angular-main-structure:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "trac-nghiem-online:build"
+            "browserTarget": "angular-main-structure:build"
           }
         },
         "test": {
@@ -114,15 +121,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "trac-nghiem-online:serve"
+            "devServerTarget": "angular-main-structure:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "trac-nghiem-online:serve:production"
+              "devServerTarget": "angular-main-structure:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "trac-nghiem-online"
+    }
+  },
+  "defaultProject": "angular-main-structure",
+  "cli": {
+    "analytics": "5ab7b5d0-20a6-44ef-a487-32968c16c024"
+  }
 }

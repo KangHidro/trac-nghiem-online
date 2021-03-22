@@ -1,5 +1,5 @@
 {
-  "name": "trac-nghiem-online",
+  "name": "angular-main-structure",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -19,6 +19,12 @@
     "@angular/platform-browser": "~10.2.4",
     "@angular/platform-browser-dynamic": "~10.2.4",
     "@angular/router": "~10.2.4",
+    "@ckeditor/ckeditor5-angular": "^2.0.1",
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "angularx-social-login": "^3.5.4",
+    "ng-zorro-antd": "^10.2.2",
+    "ngx-spinner": "^10.0.1",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

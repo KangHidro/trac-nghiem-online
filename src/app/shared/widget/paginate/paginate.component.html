@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-6 toolbar-left">
+      <button class="btn btn-default btn-sm" (click)="setPage(1)" [disabled]="pageConfig.currentPage === 1">
+          <i class="fas fa-angle-double-left"></i>
+      </button>
+      <button class="btn btn-default btn-sm" (click)="setPage(pageConfig.currentPage - 1)" [disabled]="pageConfig.currentPage === 1">
+          <i class="fas fa-angle-left"></i>
+      </button>
+      <input type="number" class="input-paging-number" value="1" (keyup.enter)="changedPage($event.target.value)" [value]="pageConfig.currentPage"/>
+      <button class="btn btn-default btn-sm" (click)="setPage(pageConfig.currentPage + 1)" [disabled]="pageConfig.currentPage === pageConfig.totalPage">
+          <i class="fas fa-angle-right"></i>
+      </button>
+      <button class="btn btn-default btn-sm" (click)="setPage(pageConfig.totalPage)" [disabled]="pageConfig.currentPage === pageConfig.totalPage">
+          <i class="fas fa-angle-double-right"></i>
+      </button>
+
+      Số bản ghi:
+      <select class="input-paging-number" (change)="changedNumOfItem($event.target.value)">
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+      </select>
+  </div>
+  <div class="col-sm-6 toolbar-right">
+      <span>Trang {{ pageConfig.currentPage }}/{{ pageConfig.totalPage }}</span>
+      <span>Tổng số {{ pageConfig.totalItem }} bản ghi</span>
+  </div>
+</div>

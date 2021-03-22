@@ -1,0 +1,106 @@
+<!-- <nav id="mainnav-container">
+  <div id="mainnav">
+    <div id="mainnav-menu-wrap">
+      <div class="nano">
+        <div class="nano-content">
+          <div id="mainnav-profile" class="mainnav-profile">
+            <div class="profile-wrap text-center" *ngIf="user">
+              <div class="pad-btm">
+                <img class="img-circle img-md" src="assets/img/user/user.png" alt="Profile Picture">
+              </div>
+              <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
+                <span class="pull-right dropdown-toggle">
+                  <i class="dropdown-caret"></i>
+                </span>
+                <p class="mnp-name">{{ user }}</p>
+              </a>
+            </div>
+            <div id="profile-nav" class="collapse list-group bg-trans">
+              <a class="list-group-item" href="assets/file/HDSD_XetTuyenManagement.pdf" target="_blank">
+                <i class="far fa-question-circle icon-lg icon-fw"></i>
+                HDSD PDF
+              </a>
+              <a class="list-group-item" href="https://youtu.be/fUpJkIFPl4E" target="_blank">
+                <i class="fab fa-youtube icon-lg icon-fw"></i>
+                HDSD Youtube
+              </a>
+              <a (click)="openModal(template)" class="list-group-item">
+                <i class="fas fa-exchange-alt icon-lg icon-fw"></i>
+                Đổi mật khẩu
+              </a>
+              <a [routerLink]="constantUrl.ROUTE.LOGIN" class="list-group-item">
+                <i class="fas fa-sign-in-alt icon-lg icon-fw"></i>
+                Đăng xuất
+              </a>
+            </div>
+          </div>
+          <ul id="mainnav-menu" class="list-group">
+            <ng-container *ngIf="isAdmin">
+              <li class="list-divider"></li>
+              <li class="list-header">Danh mục</li>
+              <li routerLinkActive="active-sub active" *ngFor="let item of lstDanhMuc">
+                <a [routerLink]="item.link">
+                  <i [ngClass]="item.ic"></i>
+                  <span class="menu-title">{{ item.title }}</span>
+                </a>
+              </li>
+            </ng-container>
+            <ng-container>
+              <li class="list-divider"></li>
+              <li class="list-header">Hồ Sơ Xét Tuyển</li>
+              <li routerLinkActive="active-sub active">
+                <a [routerLink]="constantUrl.ROUTE.MANAGEMENT.NHAN_HO_SO">
+                  <i class="fas fa-barcode"></i>
+                  <span class="menu-title">Nhận Hồ Sơ</span>
+                </a>
+              </li>
+              <li routerLinkActive="active-sub active" *ngIf="isAdmin">
+                <a [routerLink]="constantUrl.ROUTE.MANAGEMENT.THONG_KE_HO_SO">
+                  <i class="fas fa-chart-bar"></i>
+                  <span class="menu-title">Thống Kê Hồ Sơ</span>
+                </a>
+              </li>
+            </ng-container>
+            <ng-container *ngIf="isAdmin">
+              <li class="list-divider"></li>
+              <li class="list-header">Hệ Chính Quy</li>
+              <li routerLinkActive="active-sub active">
+                <a [routerLink]="constantUrl.ROUTE.MANAGEMENT.THONG_TIN_BIEN_NHAN">
+                  <i class="fas fa-receipt"></i>
+                  <span class="menu-title">Thông Tin Biên Nhận</span>
+                </a>
+              </li>
+            </ng-container>
+            <ng-container *ngIf="isAdmin">
+              <li class="list-divider"></li>
+              <li class="list-header">Hệ Thống</li>
+              <li routerLinkActive="active-sub active">
+                <a [routerLink]="constantUrl.ROUTE.MANAGEMENT.QUAN_LY_NGUOI_DUNG">
+                  <i class="fas fa-users"></i>
+                  <span class="menu-title">Quản Lý Người Dùng</span>
+                </a>
+              </li>
+              <li routerLinkActive="active-sub active">
+                <a [routerLink]="constantUrl.ROUTE.MANAGEMENT.TAI_KHOAN_THI_SINH">
+                  <i class="fas fa-user-graduate"></i>
+                  <span class="menu-title">Tài Khoản Thí Sinh</span>
+                </a>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">
+      <i class="fas fa-exchange-alt"></i>Đổi Mật Khẩu
+    </h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</ng-template> -->
