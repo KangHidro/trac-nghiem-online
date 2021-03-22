@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WidgetModule } from '../widget/widget.module';
 import { PipeUserModule } from '../widget/pipes/pipe-user.module';
-import { PluginModule } from '../plugin.module';
 import { SharedModule } from '../shared.module';
 
 const formComponents = [

@@ -4,6 +4,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainLayoutModule } from '../layouts/main/main-layout.module';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     MainLayoutModule,
     MainRoutingModule,
+    AuthModule,
     SharedModule,
   ]
 })

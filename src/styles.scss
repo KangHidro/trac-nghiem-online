@@ -23,7 +23,26 @@
 @import './assets/css/custom-text.scss';
 
 body {
+  height: auto;
   background-image: url('./assets/img/bg.jpg');
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
+}
+
+.title-heading {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.login-container {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-page-btn {
+  width: 100%;
+  text-align: center;
 }
