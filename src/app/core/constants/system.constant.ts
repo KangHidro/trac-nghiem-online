@@ -18,42 +18,44 @@ export class SystemConstant {
   };
 
   public static CkEditorCfg = {
-    toolbar: [
-      'heading',
-      'removeFormat',
-      'fontFamily',
-      'fontSize',
-      'fontColor',
-      'fontBackgroundColor',
-      '|',
-      'bold',
-      'italic',
-      'underline',
-      'alignment',
-      '|',
-      'imageInsert',
-      'insertTable',
-      'mediaEmbed',
-      'bulletedList',
-      'numberedList',
-      'link',
-      '|',
-      'indent',
-      'outdent',
-      '|',
-      'subscript',
-      'superscript',
-      'strikethrough',
-      'code',
-      'codeBlock',
-      'exportPdf',
-      'exportWord'
-    ],
+    toolbar: {
+      items: [
+        'heading',
+        '|',
+        'alignment',
+        'bold',
+        'italic',
+        'underline',
+        'link',
+        'bulletedList',
+        'numberedList',
+        'fontBackgroundColor',
+        'fontColor',
+        'fontSize',
+        '|',
+        'outdent',
+        'indent',
+        '|',
+        'imageInsert',
+        'blockQuote',
+        'insertTable',
+        'mediaEmbed',
+        'undo',
+        'redo',
+        'MathType',
+        'ChemType',
+        'subscript',
+        'superscript',
+        'strikethrough'
+      ]
+    },
+    language: 'vi',
     image: {
       toolbar: [
         'imageTextAlternative',
         'imageStyle:full',
-        'imageStyle:side'
+        'imageStyle:side',
+        'linkImage'
       ]
     },
     table: {
@@ -64,7 +66,8 @@ export class SystemConstant {
         'tableCellProperties',
         'tableProperties'
       ]
-    }
+    },
+    licenseKey: '',
   };
 
 }
