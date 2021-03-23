@@ -37,6 +37,12 @@
               </li>
             </ul>
           </td>
+          <td nzWidth="5%" nzAlign="center">
+            {{cauHoi.diemSo}}
+          </td>
+          <td nzWidth="5%" nzAlign="center">
+            <i class="fas fa-trash text-red pointer" (click)="deleteCauHoiTracNghiem(cauHoi.id)"></i>
+          </td>
         </tr>
       </tbody>
     </nz-table>

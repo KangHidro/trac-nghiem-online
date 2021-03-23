@@ -7,7 +7,7 @@ import { SystemConstant } from 'src/app/core/constants/system.constant';
 import { ModalData } from 'src/app/core/models/common/modal-data.model';
 import { CauHoiTracNghiem, DapAnModel } from 'src/app/core/models/main/cau-hoi.model';
 import { ValidatorService } from 'src/app/core/services/common/validator.service';
-import { TracNghiemService } from 'src/app/core/services/main/trac-nghiem.service';
+import { TracNghiemService } from 'src/app/core/services/management/trac-nghiem.service';
 import Editor from 'src/assets/libs/ckeditor5/build/ckeditor';
 
 @Component({

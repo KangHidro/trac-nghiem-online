@@ -21,11 +21,6 @@ export class TracNghiemService {
     this.apiUrl = UrlConstant.API.TRAC_NGHIEM;
   }
 
-  getRandomCauHoi(soLuong: number): Observable<CauHoiTracNghiem[]> {
-    return this.http.get<CauHoiTracNghiem[]>('')
-    .pipe(catchError(this.handleErrSvc.handleError));
-  }
-
   getAllCauHoiPaging(page: number, size: number, search?: string, sort?: string, column?: string): Observable<PagedResults<CauHoiTracNghiem>> {
     const params = new HttpParams()
     .set('page', page.toString())
@@ -34,6 +29,14 @@ export class TracNghiemService {
     .set('sort', sort ? sort : 'ASC')
     .set('column', column ? column : 'cauHoi');
     return this.http.get<PagedResults<CauHoiTracNghiem>>(this.apiUrl + '/paging', {params})
+    .pipe(catchError(this.handleErrSvc.handleError));
+  }
+
+  getCauHoiUserPaging(numberOfQuiz: number): Observable<PagedResults<CauHoiTracNghiem>> {
+    const params = new HttpParams()
+    .set('page', '0')
+    .set('size', numberOfQuiz.toString());
+    return this.http.get<PagedResults<CauHoiTracNghiem>>(this.apiUrl + '/user/paging', {params})
     .pipe(catchError(this.handleErrSvc.handleError));
   }
 

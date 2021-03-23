@@ -2,10 +2,11 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { MessageConstant } from 'src/app/core/constants/message.constant';
 import { SystemConstant } from 'src/app/core/constants/system.constant';
 import { ModalData } from 'src/app/core/models/common/modal-data.model';
 import { CauHoiTracNghiem } from 'src/app/core/models/main/cau-hoi.model';
-import { TracNghiemService } from 'src/app/core/services/main/trac-nghiem.service';
+import { TracNghiemService } from 'src/app/core/services/management/trac-nghiem.service';
 import { Paginate } from 'src/app/shared/widget/paginate/paginate.model';
 
 @Component({
@@ -27,6 +28,7 @@ export class ListTracNghiemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getDataPaging();
   }
 
   getDataPaging(): void {
@@ -71,6 +73,25 @@ export class ListTracNghiemComponent implements OnInit {
     if (reload) {
       this.getDataPaging();
     }
+  }
+
+  deleteCauHoiTracNghiem(id: string) {
+    this.nzModalSvc.confirm({
+      nzTitle: 'Xác nhận xoá?',
+      nzContent: 'Thao tác này sẽ không thể khôi phục!',
+      nzCancelText: 'Huỷ',
+      nzOkDanger: true,
+      nzOkText: 'Xoá',
+      nzOnOk: () => {
+        this.spinner.show();
+        this.tracNghiemSvc.deleteCauHoi(id)
+        .subscribe(() => {
+          this.alert.success(MessageConstant.MSG_DELETE_DONE);
+          this.getDataPaging();
+          this.spinner.hide();
+        }, () => this.spinner.hide());
+      }
+    });
   }
 
 }
