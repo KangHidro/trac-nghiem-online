@@ -5,31 +5,45 @@
 </div>
 <div nz-row [nzGutter]="16" class="mr-bot-10">
   <div nz-col nzSpan="24" class="text-right mr-bot-5">
-    <button nz-button nzType="primary" type="button" (click)="openFormCreateTracNghiem(formTracNghiem)">
+    <button nz-button nzType="primary" type="button" (click)="openFormTracNghiem(formTracNghiem)">
       <i class="fas fa-plus mr-right-5"></i>Thêm câu hỏi
     </button>
   </div>
   <div nz-col nzSpan="24">
-    <nz-table #dataTable nzBordered [nzData]="[]">
+    <nz-table #dataTable nzBordered [nzData]="listCauHoi.data">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Address</th>
+          <th nzWidth="5%" nzAlign="center">STT</th>
+          <th nzWidth="45%" nzAlign="center">Câu hỏi</th>
+          <th nzWidth="40%" nzAlign="center">Đáp án</th>
+          <th nzWidth="5%" nzAlign="center">Điểm</th>
+          <th nzWidth="5%" nzAlign="center"><i class="fas fa-cog"></i></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of []">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
+        <tr *ngFor="let cauHoi of listCauHoi.data; let i = index">
+          <td nzWidth="5%" nzAlign="center">
+            {{ i + 1 + (listCauHoi.currentPage-1)*listCauHoi.limit}}
+          </td>
+          <td nzWidth="45%">
+            <span [innerHTML]="cauHoi.cauHoi | safeHtml"></span>
+          </td>
+          <td nzWidth="40%">
+            <ul class="no-bullet">
+              <li *ngFor="let dapAn of cauHoi.dapAns">
+                <i class="fas fa-check-square mr-right-5 text-green" *ngIf="dapAn.dapAnDung"></i>
+                <i class="fas fa-square mr-right-5" *ngIf="!dapAn.dapAnDung"></i>
+                {{dapAn.noiDungCauTraLoi}}
+              </li>
+            </ul>
+          </td>
         </tr>
       </tbody>
     </nz-table>
-    <!-- <table-paginate></table-paginate> -->
+    <table-paginate [pageConfig]="listCauHoi" (pageChange)="pageChange($event)"></table-paginate>
   </div>
 </div>
 
 <ng-template #formTracNghiem>
-  <app-form-trac-nghiem></app-form-trac-nghiem>
+  <app-form-trac-nghiem [modalData]="modalData" (closePopup)="closePopup($event)"></app-form-trac-nghiem>
 </ng-template>

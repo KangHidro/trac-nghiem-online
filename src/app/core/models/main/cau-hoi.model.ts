@@ -1,9 +1,9 @@
 export class CauHoiTracNghiem {
-  id: string;
-  cauHoi: string;
-  dapAns: DapAnModel[]; // embedded
-  diemSo: number;
-  dapAnUserSelected?: string;
+  id?: string; // Entity
+  cauHoi: string; // Entity + DTO
+  dapAns: DapAnModel[]; // embedded  // Entity + DTO
+  diemSo: number;  // Entity + DTO
+  dapAnUserSelected?: string; // local
 }
 
 export class DapAnModel {

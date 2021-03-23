@@ -83,3 +83,9 @@ td > nz-tag:last-child {
 .has-error {
   color: red;
 }
+
+ul.no-bullet {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

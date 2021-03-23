@@ -72,8 +72,8 @@
 
   <div nz-row [nzGutter]="16" class="mr-top-10">
     <div nz-col nzSpan="24" class="text-right">
-      <button nz-button nzType="default" type="button" class="mr-right-5" (click)="onClose()">Huỳ</button>
-      <button nz-button nzType="primary" type="submit">Thêm</button>
+      <button nz-button nzType="default" type="button" class="mr-right-5" (click)="onClose()">Huỷ</button>
+      <button nz-button nzType="primary" type="submit">{{modalData.action === 'view' ? 'Thêm mới' : 'Lưu lại'}}</button>
     </div>
   </div>
 </form>

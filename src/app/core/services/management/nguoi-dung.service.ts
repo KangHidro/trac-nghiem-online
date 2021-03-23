@@ -32,18 +32,18 @@ export class NguoiDungService {
     .pipe(catchError(this.handleErrSvc.handleError));
   }
 
-  createUser(model: NguoiDung): Observable<PagedResults<NguoiDung>> {
-    return this.http.post<PagedResults<NguoiDung>>(this.apiUrl, model)
+  createUser(model: NguoiDung): Observable<NguoiDung> {
+    return this.http.post<NguoiDung>(this.apiUrl, model)
     .pipe(catchError(this.handleErrSvc.handleError));
   }
 
-  updateUser(id: string, model: NguoiDung): Observable<PagedResults<NguoiDung>> {
-    return this.http.put<PagedResults<NguoiDung>>(this.apiUrl + `/${id}`, model)
+  updateUser(id: string, model: NguoiDung): Observable<NguoiDung> {
+    return this.http.put<NguoiDung>(this.apiUrl + `/${id}`, model)
     .pipe(catchError(this.handleErrSvc.handleError));
   }
 
-  changeStatusUser(id: string): Observable<PagedResults<NguoiDung>> {
-    return this.http.delete<PagedResults<NguoiDung>>(this.apiUrl + `/${id}`)
+  changeStatusUser(id: string): Observable<NguoiDung> {
+    return this.http.delete<NguoiDung>(this.apiUrl + `/${id}`)
     .pipe(catchError(this.handleErrSvc.handleError));
   }
 }

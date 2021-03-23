@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CauHoiTracNghiem } from 'src/app/core/models/main/cau-hoi.model';
-import { CauHoiService } from 'src/app/core/services/main/cau-hoi.service';
+import { TracNghiemService } from 'src/app/core/services/main/trac-nghiem.service';
 
 @Component({
   selector: 'app-lam-trac-nghiem',
@@ -30,7 +30,7 @@ export class LamTracNghiemComponent implements OnInit {
 
   constructor(
     private spinner: NgxSpinnerService,
-    private cauHoiSvc: CauHoiService,
+    private tracNghiemSvc: TracNghiemService,
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class LamTracNghiemComponent implements OnInit {
 
   getDataCauHoiRandom() {
     this.spinner.show();
-    this.cauHoiSvc.getRandomCauHoi(10)
+    this.tracNghiemSvc.getRandomCauHoi(10)
     .subscribe(res => {
       this.listCauHoi = res;
       this.spinner.hide();

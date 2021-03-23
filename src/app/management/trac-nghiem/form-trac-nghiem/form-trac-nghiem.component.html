@@ -1,20 +1,23 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div nz-row [nzGutter]="16" class="mr-bot-10">
     <div nz-col nzSpan="24">
-      <h2>Câu hỏi</h2>
+      <h3>Câu hỏi (Hỗ trợ HTML)</h3>
     </div>
-    <div nz-col nzSpan="24">
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss('cauHoi')">
       <ckeditor [editor]="editor" [config]="cfgEditor" formControlName="cauHoi"></ckeditor>
+      <app-field-error-display [displayError]="isFieldValid('cauHoi')"
+            errorMsg="Không được bỏ trống">
+      </app-field-error-display>
     </div>
   </div>
   <div nz-row [nzGutter]="16" class="mr-bot-10">
-    <div nz-col nzSpan="24">
-      <h2>Đáp án lựa chọn</h2>
+    <div nz-col nzSpan="12">
+      <h4>Đáp án lựa chọn</h4>
     </div>
-    <div nz-col nzSpan="24" class="text-right">
+    <div nz-col nzSpan="12" class="text-right">
       <button nz-button nzType="primary" type="button" nzSize="small" (click)="themDapAn()"><i class="fas fa-plus mr-right-5"></i>Thêm đáp án</button>
     </div>
-    <div nz-col nzSpan="24">
+    <div nz-col nzSpan="24" [ngClass]="listDapAnTemp.length === 0 && form.get('dapAns').touched ? 'has-error' : ''">
       <nz-table #dataTable nzBordered [nzData]="listDapAnTemp" nzShowPagination="false">
         <thead>
           <tr>
@@ -26,7 +29,7 @@
         <tbody>
           <tr *ngFor="let dapAn of listDapAnTemp; let i = index">
             <td nzWidth="10%" nzAlign="center">
-              <label nz-checkbox [(ngModel)]="dapAn.dapAnDung" (ngModelChange)="changeDapAnDung(i)" [ngModelOptions]="{standalone: true}"></label>
+              <label nz-checkbox [(ngModel)]="dapAn.dapAnDung" (ngModelChange)="changeDapAnDung(i, $event)" [ngModelOptions]="{standalone: true}"></label>
             </td>
             <td nzWidth="80%" nzAlign="center">
               <input nz-input type="text" class="w-100" [(ngModel)]="dapAn.noiDungCauTraLoi" [ngModelOptions]="{standalone: true}">
@@ -35,6 +38,16 @@
           </tr>
         </tbody>
       </nz-table>
+      <app-field-error-display class="text-red" [displayError]="listDapAnTemp.length === 0 && form.get('dapAns').touched" errorMsg="Phải có ít nhất một đáp án">
+      </app-field-error-display>
+      <app-field-error-display class="text-red" [displayError]="listDapAnTemp.length > 0 && !isDaChonItNhatMotDapAnDung() && form.get('dapAns').touched" errorMsg="Phải có ít nhất một đáp án đúng">
+      </app-field-error-display>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16" class="mr-top-10">
+    <div nz-col nzSpan="24" class="text-right">
+      <button nz-button nzType="default" type="button" class="mr-right-5" (click)="onClose()">Huỷ</button>
+      <button nz-button nzType="primary" type="submit">{{modalData.action === 'view' ? 'Thêm mới' : 'Lưu lại'}}</button>
     </div>
   </div>
 </form>

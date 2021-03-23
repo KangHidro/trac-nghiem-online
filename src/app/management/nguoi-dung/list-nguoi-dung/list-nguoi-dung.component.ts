@@ -45,7 +45,6 @@ export class ListNguoiDungComponent implements OnInit {
       this.listNguoiDung.totalPage = res.totalPages;
       this.spinner.hide();
     }, () => this.spinner.hide());
-
   }
 
   openFormNguoiDung(template: TemplateRef<{}>, editData?: NguoiDung) {
