@@ -10,7 +10,7 @@ import { TablePaginateComponent } from './paginate.component';
     imports: [
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     exports: [
         TablePaginateComponent

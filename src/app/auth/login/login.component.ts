@@ -25,10 +25,12 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.authSvc.checkRoleAdmin()) {
-      this.router.navigateByUrl(UrlConstant.ROUTE.MANAGEMENT.TRAC_NGHIEM);
-    } else if (this.authSvc.checkRoleUser()) {
-      this.router.navigateByUrl(UrlConstant.ROUTE.MAIN.QUIZ);
+    if (this.authSvc.getAuthData()) {
+      if (this.authSvc.checkRoleAdmin()) {
+        this.router.navigateByUrl(UrlConstant.ROUTE.MANAGEMENT.TRAC_NGHIEM);
+      } else if (this.authSvc.checkRoleUser()) {
+        this.router.navigateByUrl(UrlConstant.ROUTE.MAIN.QUIZ);
+      }
     }
   }
 
@@ -43,7 +45,11 @@ export class LoginComponent implements OnInit {
               this.spinner.hide();
               this.authSvc.setTokenUser(user.email);
               this.authSvc.setAuthData(res);
-              this.router.navigateByUrl(UrlConstant.ROUTE.MAIN.QUIZ);
+              if (this.authSvc.checkRoleAdmin()) {
+                this.router.navigateByUrl(UrlConstant.ROUTE.MANAGEMENT.TRAC_NGHIEM);
+              } else if (this.authSvc.checkRoleUser()) {
+                this.router.navigateByUrl(UrlConstant.ROUTE.MAIN.QUIZ);
+              }
             },
             (err) => {
               this.spinner.hide();

@@ -4,6 +4,8 @@ export const UrlConstant = {
   API: {
     // Main
     LOGIN: environment.serverUrl + 'rest/login',
+    TRAC_NGHIEM: environment.serverUrl + 'rest/trac-nghiem',
+    NGUOI_DUNG: environment.serverUrl + 'rest/user',
 
   },
 

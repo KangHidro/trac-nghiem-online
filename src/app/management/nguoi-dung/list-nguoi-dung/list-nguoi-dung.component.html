@@ -1,1 +1,55 @@
-<p>list-nguoi-dung works!</p>
+<div nz-row [nzGutter]="16" class="mr-bot-10 text-center">
+  <div nz-col nzSpan="24">
+    <h2>QUẢN TRỊ NGƯỜI DÙNG</h2>
+  </div>
+</div>
+<div nz-row [nzGutter]="16" class="mr-bot-10">
+  <div nz-col nzSpan="24" class="text-right mr-bot-5">
+    <button nz-button nzType="primary" type="button" (click)="openFormNguoiDung(formNguoiDung)">
+      <i class="fas fa-plus mr-right-5"></i>Thêm người dùng
+    </button>
+  </div>
+  <div nz-col nzSpan="24">
+    <nz-table #dataTable nzBordered [nzData]="listNguoiDung.data" nzShowPagination="false">
+      <thead>
+        <tr>
+          <th nzWidth="5%" nzAlign="center">STT</th>
+          <th nzWidth="25%" nzAlign="center">Họ tên</th>
+          <th nzWidth="30%" nzAlign="center">Email</th>
+          <th nzWidth="25%" nzAlign="center">Quyền hạn</th>
+          <th nzWidth="10%" nzAlign="center">Trạng thái</th>
+          <th nzWidth="5%" nzAlign="center"><i class="fas fa-cog"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nguoiDung of listNguoiDung.data; let i = index">
+          <td nzWidth="5%" nzAlign="center">
+            {{ i + 1 + (listNguoiDung.currentPage-1)*listNguoiDung.limit}}
+          </td>
+          <td nzWidth="25%" nzAlign="left">
+            {{nguoiDung.name ? nguoiDung.name : '&lt;Chưa cập nhật&gt;'}}
+          </td>
+          <td nzWidth="30%" nzAlign="left">
+            {{nguoiDung.email}}
+          </td>
+          <td nzWidth="25%" nzAlign="center">
+            <nz-tag nzColor="orange" *ngIf="nguoiDung.roles.includes('ROLE_ADMIN')">ADMIN</nz-tag>
+            <nz-tag nzColor="blue" *ngIf="nguoiDung.roles.includes('ROLE_THI_SINH')">USER</nz-tag>
+          </td>
+          <td nzWidth="10%" nzAlign="center">
+            <nz-tag nzColor="red" class="pointer" *ngIf="!nguoiDung.enable" (click)="changeStatusNguoiDung(nguoiDung.id)">Bị khoá</nz-tag>
+            <nz-tag nzColor="green" class="pointer" *ngIf="nguoiDung.enable" (click)="changeStatusNguoiDung(nguoiDung.id)">Hoạt động</nz-tag>
+          </td>
+          <td nzWidth="5%" nzAlign="center">
+            <i class="fas fa-edit text-blue pointer" (click)="openFormNguoiDung(formNguoiDung, nguoiDung)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <table-paginate [pageConfig]="listNguoiDung" (pageChange)="pageChange($event)"></table-paginate>
+  </div>
+</div>
+
+<ng-template #formNguoiDung>
+  <app-form-nguoi-dung [modalData]="modalData" (closePopup)="closePopup($event)"></app-form-nguoi-dung>
+</ng-template>

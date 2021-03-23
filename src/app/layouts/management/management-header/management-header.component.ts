@@ -12,14 +12,13 @@ import { AuthenticateService } from 'src/app/core/services/auth/authenticate.ser
 export class ManagementHeaderComponent implements OnInit {
 
   constructor(
-    private authService: AuthenticateService
+    private authSvc: AuthenticateService,
   ) { }
 
   ngOnInit(): void {
-
   }
 
-  doLogout(): void {
-    this.authService.doLogoutUser();
+  logout(): void {
+    this.authSvc.doLogoutUser();
   }
 }

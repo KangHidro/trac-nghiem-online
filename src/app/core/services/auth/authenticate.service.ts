@@ -56,6 +56,7 @@ export class AuthenticateService {
   doLogoutUser(): void {
     localStorage.removeItem(SystemConstant.CURRENT_USER);
     localStorage.removeItem(SystemConstant.CURRENT_USER_INFO);
+    localStorage.removeItem(SystemConstant.CURRENT_USER_GOOGLE);
     this.router.navigate([UrlConstant.ROUTE.LOGIN]);
   }
 

@@ -75,3 +75,11 @@ body {
 .pointer:hover {
   cursor: pointer;
 }
+
+td > nz-tag:last-child {
+  margin-right: auto;
+}
+
+.has-error {
+  color: red;
+}

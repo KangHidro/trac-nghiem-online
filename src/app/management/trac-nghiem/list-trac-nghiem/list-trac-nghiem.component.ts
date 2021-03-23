@@ -21,6 +21,7 @@ export class ListTracNghiemComponent implements OnInit {
       nzWidth: 700,
       nzTitle: 'SOẠN THẢO CÂU HỎI TRẮC NGHIỆM',
       nzContent: template,
+      nzFooter: null
     });
   }
 

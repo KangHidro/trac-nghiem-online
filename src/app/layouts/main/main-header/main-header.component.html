@@ -6,10 +6,11 @@
   nz-dropdown [nzDropdownMenu]="menuUser">
   <nz-dropdown-menu #menuUser="nzDropdownMenu">
     <ul nz-menu>
+      <li nz-menu-item [routerLink]="['/quiz']"><i class="fas fa-question mr-right-5"></i>Trắc nghiệm</li>
       <li nz-menu-item [routerLink]="['/profile']"><i class="fas fa-user mr-right-5"></i>Thông tin cá nhân</li>
       <li nz-menu-item [routerLink]="['/my-answer']"><i class="fas fa-server mr-right-5"></i>Dữ liệu của tôi</li>
       <li nz-menu-divider></li>
-      <li nz-menu-item class="text-red"><i class="fas fa-power-off mr-right-5"></i>Đăng xuất</li>
+      <li nz-menu-item class="text-red" (click)="logout()"><i class="fas fa-power-off mr-right-5"></i>Đăng xuất</li>
     </ul>
   </nz-dropdown-menu>
 </div>

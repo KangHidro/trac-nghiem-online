@@ -8,9 +8,9 @@ import { Paginate } from './paginate.model';
   styleUrls: ['./paginate.component.scss']
 })
 export class TablePaginateComponent implements OnInit {
-  @Input() pageConfig: Paginate;
-  @Output() pageChange: EventEmitter<Paginate> = new EventEmitter<Paginate>();
-  @Output() numOfItemChange: EventEmitter<Paginate> = new EventEmitter<Paginate>();
+  @Input() pageConfig: Paginate<any>;
+  @Output() pageChange: EventEmitter<Paginate<any>> = new EventEmitter<Paginate<any>>();
+  @Output() numOfItemChange: EventEmitter<Paginate<any>> = new EventEmitter<Paginate<any>>();
   constructor() { }
 
   ngOnInit(): void { }

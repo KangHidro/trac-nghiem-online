@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticateService } from 'src/app/core/services/auth/authenticate.service';
 
 @Component({
   selector: 'app-main-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authSvc: AuthenticateService,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    this.authSvc.doLogoutUser();
   }
 
 }

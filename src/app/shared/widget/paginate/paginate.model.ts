@@ -1,9 +1,9 @@
-export class Paginate {
+export class Paginate<T> {
     totalPage?: number;
     totalItem?: number;
     limit: number;
     currentPage: number;
-    data?: any[] = [];
+    data?: T[] = [];
 
     constructor() {
         this.currentPage = 1;
