@@ -12,9 +12,9 @@ export const UrlConstant = {
   ROUTE: {
     LOGIN: '/',
     MAIN: {
-      QUIZ: '/quiz',
-      PROFILE: '/profile',
-      MY_ANSWER: '/my-answer',
+      QUIZ: '/main/quiz',
+      PROFILE: '/main/profile',
+      MY_ANSWER: '/main/my-answer',
     },
     MANAGEMENT: {
       TRAC_NGHIEM: '/management/trac-nghiem',

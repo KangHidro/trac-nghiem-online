@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       if (this.authSvc.checkRoleAdmin()) {
         this.router.navigateByUrl(UrlConstant.ROUTE.MANAGEMENT.TRAC_NGHIEM);
       } else if (this.authSvc.checkRoleUser()) {
-        this.router.navigateByUrl(UrlConstant.ROUTE.MAIN.QUIZ);
+        this.router.navigateByUrl(UrlConstant.ROUTE.MAIN.MY_ANSWER);
       }
     }
   }
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
               if (this.authSvc.checkRoleAdmin()) {
                 this.router.navigateByUrl(UrlConstant.ROUTE.MANAGEMENT.TRAC_NGHIEM);
               } else if (this.authSvc.checkRoleUser()) {
-                this.router.navigateByUrl(UrlConstant.ROUTE.MAIN.QUIZ);
+                this.router.navigateByUrl(UrlConstant.ROUTE.MAIN.MY_ANSWER);
               }
             },
             (err) => {
