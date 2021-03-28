@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { UrlConstant } from '../../constants/url.constant';
 import { PagedResults } from '../../models/common/response-page.model';
 import { CauHoiTracNghiem } from '../../models/main/cau-hoi.model';
+import { KetQuaTracNghiem, SubmitDataCauTraLoi } from '../../models/main/user-tra-loi.model';
 import { HandlerErrorService } from '../common/handler-error.service';
 
 @Injectable({
@@ -12,20 +13,32 @@ import { HandlerErrorService } from '../common/handler-error.service';
 })
 export class TracNghiemUserService {
 
-  apiUrl = '';
+  tracNghiemApiUrl = '';
+  ketQuaTracNghiemApiUrl = '';
 
   constructor(
     private http: HttpClient,
     private handleErrSvc: HandlerErrorService,
   ) {
-    this.apiUrl = UrlConstant.API.TRAC_NGHIEM;
+    this.tracNghiemApiUrl = UrlConstant.API.TRAC_NGHIEM;
+    this.ketQuaTracNghiemApiUrl = UrlConstant.API.KET_QUA_TRAC_NGHIEM;
   }
 
-  getCauHoiUserRanDomPaging(numberOfQuiz: number): Observable<PagedResults<CauHoiTracNghiem>> {
+  getCauHoiUserRandomPaging(numberOfQuiz: number): Observable<PagedResults<CauHoiTracNghiem>> {
     const params = new HttpParams()
     .set('page', '0')
     .set('size', numberOfQuiz.toString());
-    return this.http.get<PagedResults<CauHoiTracNghiem>>(this.apiUrl + '/user/paging', {params})
+    return this.http.get<PagedResults<CauHoiTracNghiem>>(this.tracNghiemApiUrl + '/user/paging', {params})
+    .pipe(catchError(this.handleErrSvc.handleError));
+  }
+
+  submitCauTraLoi(baiLamData: SubmitDataCauTraLoi): Observable<KetQuaTracNghiem> {
+    return this.http.post<KetQuaTracNghiem>(this.ketQuaTracNghiemApiUrl, baiLamData)
+    .pipe(catchError(this.handleErrSvc.handleError));
+  }
+
+  getKetQuaTracNghiemByEmail(email: string): Observable<KetQuaTracNghiem> {
+    return this.http.get<KetQuaTracNghiem>(this.ketQuaTracNghiemApiUrl + `/${email}`)
     .pipe(catchError(this.handleErrSvc.handleError));
   }
 }

@@ -11,6 +11,18 @@
     </div>
   </div>
   <div nz-row [nzGutter]="16" class="mr-bot-10">
+    <div nz-col nzSpan="24">
+      <h3>Điểm số</h3>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss('diemSo')">
+      <input nz-input class="w-100" type="number" placeholder="Điểm số" formControlName="diemSo" min="1">
+      <div *ngIf="isFieldValid('diemSo')">
+        <small *ngIf="form.get('diemSo').hasError('required')">Không được bỏ trống</small>
+        <small *ngIf="form.get('diemSo').hasError('min')">Điểm số phải từ 1 điểm trở lên</small>
+      </div>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16" class="mr-bot-10">
     <div nz-col nzSpan="12">
       <h4>Đáp án lựa chọn</h4>
     </div>

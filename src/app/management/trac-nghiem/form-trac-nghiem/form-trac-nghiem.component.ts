@@ -45,7 +45,7 @@ export class FormTracNghiemComponent implements OnInit {
     this.form = this.fbd.group({
       cauHoi: ['', [Validators.required]],
       dapAns: [[]],
-      diemSo: [0, [Validators.required]],
+      diemSo: [1, [Validators.required, Validators.min(1)]],
     });
   }
 
@@ -54,7 +54,7 @@ export class FormTracNghiemComponent implements OnInit {
     this.form.patchValue({
       cauHoi: this.modalData.data.cauHoi || '',
       dapAns: this.modalData.data.dapAns || [],
-      diemSo: this.modalData.data.diemSo || 0,
+      diemSo: this.modalData.data.diemSo || 1,
     });
   }
 

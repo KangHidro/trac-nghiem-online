@@ -15,6 +15,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
@@ -33,6 +34,7 @@ const NgZorroAntdModules = [
   NzTagModule,
   NzToolTipModule,
   NzCheckboxModule,
+  NzEmptyModule,
 ];
 
 @NgModule({

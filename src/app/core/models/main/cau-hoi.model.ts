@@ -7,6 +7,6 @@ export class CauHoiTracNghiem {
 }
 
 export class DapAnModel {
-  dapAnDung: boolean;
-  noiDungCauTraLoi: string;
+  dapAnDung?: boolean; // Entity
+  noiDungCauTraLoi: string; // Entity + DTO
 }

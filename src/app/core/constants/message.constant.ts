@@ -7,4 +7,6 @@ export const MessageConstant = {
     MSG_UPDATE_DONE: 'Chỉnh sửa thành công!',
     MSG_DELETE_DONE: 'Xoá thành công!',
     MSG_CHANGE_STATUS_DONE: 'Thay đổi trạng thái thành công!',
+
+    MSG_SUBMIT_DONE: 'Đã gửi câu trả lời thành công!',
 };

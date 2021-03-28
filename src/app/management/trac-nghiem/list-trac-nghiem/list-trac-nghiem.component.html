@@ -14,7 +14,7 @@
       <thead>
         <tr>
           <th nzWidth="5%" nzAlign="center">STT</th>
-          <th nzWidth="45%" nzAlign="center">Câu hỏi</th>
+          <th nzWidth="45%" nzAlign="center">Câu hỏi<br><small>(Chỉ hiện 3 dòng đầu tiên)</small></th>
           <th nzWidth="40%" nzAlign="center">Đáp án</th>
           <th nzWidth="5%" nzAlign="center">Điểm</th>
           <th nzWidth="5%" nzAlign="center"><i class="fas fa-cog"></i></th>
@@ -26,13 +26,13 @@
             {{ i + 1 + (listCauHoi.currentPage-1)*listCauHoi.limit}}
           </td>
           <td nzWidth="45%">
-            <span [innerHTML]="cauHoi.cauHoi | safeHtml"></span>
+            <p class="no-mr-b quiz-admin-3-row" [innerHTML]="cauHoi.cauHoi | safeHtml"></p>
           </td>
           <td nzWidth="40%">
             <ul class="no-bullet">
               <li *ngFor="let dapAn of cauHoi.dapAns">
-                <i class="fas fa-check-square mr-right-5 text-green" *ngIf="dapAn.dapAnDung"></i>
-                <i class="fas fa-square mr-right-5" *ngIf="!dapAn.dapAnDung"></i>
+                <i class="far fa-check-square mr-right-5 text-green" *ngIf="dapAn.dapAnDung"></i>
+                <i class="far fa-square mr-right-5" *ngIf="!dapAn.dapAnDung"></i>
                 {{dapAn.noiDungCauTraLoi}}
               </li>
             </ul>
@@ -41,6 +41,7 @@
             {{cauHoi.diemSo}}
           </td>
           <td nzWidth="5%" nzAlign="center">
+            <i class="fas fa-edit text-blue pointer" (click)="openFormTracNghiem(formTracNghiem, cauHoi)"></i>
             <i class="fas fa-trash text-red pointer" (click)="deleteCauHoiTracNghiem(cauHoi.id)"></i>
           </td>
         </tr>

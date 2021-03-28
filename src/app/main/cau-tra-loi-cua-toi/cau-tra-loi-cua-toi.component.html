@@ -4,26 +4,52 @@
       <h2>DỮ LIỆU CỦA TÔI</h2>
     </div>
   </div>
+  <div nz-row [nzGutter]="16" class="mr-bot-10 sumary-font" *ngIf="listKetQuaTracNghiemUser.cauTraLois?.length">
+    <div nz-col nzSpan="12">
+      Tổng số câu đã trả lời: <b>{{listKetQuaTracNghiemUser.cauTraLois?.length}}</b>
+    </div>
+    <div nz-col nzSpan="12">
+      Số câu trả lời đúng: <b>{{listKetQuaTracNghiemUser.soCauTraLoiDung}}</b>
+    </div>
+    <div nz-col nzSpan="12">
+      Tỉ lệ trả lời đúng: <b>{{listKetQuaTracNghiemUser.soCauTraLoiDung*100 / listKetQuaTracNghiemUser.cauTraLois?.length |
+        number: '1.0-2'}}%</b>
+    </div>
+    <div nz-col nzSpan="12">
+      Số điểm đã đạt được: <b>{{listKetQuaTracNghiemUser.tongDiem}}/{{fullDiemTong}}</b>
+    </div>
+  </div>
   <div nz-row [nzGutter]="16" class="mr-bot-10">
     <div nz-col nzSpan="24">
-      <nz-table #dataTable nzBordered [nzData]="[]">
+      <nz-table #dataTable nzBordered [nzData]="listKetQuaTracNghiemUser.cauTraLois" [nzNoResult]="noneQuizAnswered">
         <thead>
           <tr>
-            <th>STT</th>
-            <th>Câu hỏi</th>
-            <th>Bạn đã trả lời</th>
-            <th>Đáp án</th>
+            <th nzAlign="center" nzWidth="5%">STT</th>
+            <th nzAlign="center" nzWidth="55%">Câu hỏi</th>
+            <th nzAlign="center" nzWidth="40%">Bạn đã trả lời</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let data of []">
-            <td>{{ data.name }}</td>
-            <td>{{ data.age }}</td>
-            <td>{{ data.address }}</td>
+          <tr *ngFor="let cauHoi of listKetQuaTracNghiemUser.cauTraLois; let i = index">
+            <td nzAlign="center">{{i+1}}</td>
+            <td nzAlign="center" class="no-mr-b">
+              <p [innerHTML]="cauHoi.cauHoiTracNghiem.cauHoi"></p>
+            </td>
+            <td>{{ cauHoi.cauTraLoi.noiDungCauTraLoi }}</td>
           </tr>
         </tbody>
       </nz-table>
-      <!-- <table-paginate></table-paginate> -->
     </div>
   </div>
 </div>
+
+<ng-template #noneQuizAnswered>
+  <nz-empty nzNotFoundImage="assets/img/empty.svg" [nzNotFoundContent]="contentTpl" [nzNotFoundFooter]="footerTpl">
+    <ng-template #contentTpl>
+      <span> Bạn chưa trả lời câu hỏi nào! </span>
+    </ng-template>
+    <ng-template #footerTpl>
+      <button nz-button nzType="primary" [routerLink]="[routerLink.ROUTE.MAIN.QUIZ]">Làm bài trắc nghiệm ngay</button>
+    </ng-template>
+  </nz-empty>
+</ng-template>

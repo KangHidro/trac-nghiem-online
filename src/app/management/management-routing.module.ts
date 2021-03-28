@@ -14,6 +14,11 @@ const routes: Routes = [
     loadChildren: () => import('./trac-nghiem/trac-nghiem.module').then(m => m.TracNghiemModule)
   },
   {
+    path: 'kq-trac-nghiem',
+    component: ManagementLayoutComponent,
+    loadChildren: () => import('./kq-trac-nghiem/kq-trac-nghiem.module').then(m => m.KqTracNghiemModule)
+  },
+  {
     path: 'nguoi-dung',
     component: ManagementLayoutComponent,
     loadChildren: () => import('./nguoi-dung/nguoi-dung.module').then(m => m.NguoiDungModule)
