@@ -8,8 +8,11 @@
     <div nz-col nzSpan="8">
       Họ và tên
     </div>
-    <div nz-col nzSpan="16">
-      <input nz-input type="text" formControlName="hoTen">
+    <div nz-col nzSpan="16" [ngClass]="displayFieldCss('name')">
+      <input nz-input type="text" formControlName="name">
+      <app-field-error-display [displayError]="isFieldValid('name')"
+            errorMsg="Không được bỏ trống">
+      </app-field-error-display>
     </div>
   </div>
   <div nz-row [nzGutter]="16" class="mr-top-10">

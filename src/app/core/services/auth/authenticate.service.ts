@@ -8,19 +8,22 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ResponseItem } from '../../models/common/response-data.model';
 import { HandlerErrorService } from '../common/handler-error.service';
+import { NguoiDung } from '../../models/common/nguoi-dung.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticateService {
-  private apiUrl: string;
+  private loginApiUrl: string;
+  private userApiUrl: string;
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private handleErrorService: HandlerErrorService
   ) {
-    this.apiUrl = UrlConstant.API.LOGIN;
+    this.loginApiUrl = UrlConstant.API.LOGIN;
+    this.userApiUrl = UrlConstant.API.USER;
   }
 
   // USER
@@ -34,21 +37,21 @@ export class AuthenticateService {
     };
 
     return this.http
-      .post<ResponseItem<string>>(this.apiUrl + `/google`, null, httpOptions)
+      .post<ResponseItem<string>>(this.loginApiUrl + `/google`, null, httpOptions)
       .pipe(catchError(this.handleErrorService.handleError));
   }
 
   // login username/pass
   doLoginUserForm(model): Observable<AuthModel> {
     return this.http
-      .post<AuthModel>(this.apiUrl, model)
+      .post<AuthModel>(this.loginApiUrl, model)
       .pipe(catchError(this.handleErrorService.handleError));
   }
 
   // register
   doRegisterUser(model): Observable<any> {
     return this.http
-      .post<any>(this.apiUrl + `/register`, model)
+      .post<any>(this.loginApiUrl + `/register`, model)
       .pipe(catchError(this.handleErrorService.handleError));
   }
 
@@ -122,6 +125,25 @@ export class AuthenticateService {
     } else {
       return false;
     }
+  }
+
+  //////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////
+
+  getLoggedInUserInfo(): Observable<NguoiDung> {
+    return this.http
+    .get<NguoiDung>(this.userApiUrl + '/')
+    .pipe(catchError(this.handleErrorService.handleError));
+  }
+
+  updateUserGoogleSelf(dataUser: NguoiDung): Observable<NguoiDung> {
+    return this.http
+    .put<NguoiDung>(this.userApiUrl + `/name`, dataUser)
+    .pipe(catchError(this.handleErrorService.handleError));
   }
 
 }
