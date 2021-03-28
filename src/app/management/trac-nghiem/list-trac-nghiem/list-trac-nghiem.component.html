@@ -13,35 +13,35 @@
     <nz-table #dataTable nzBordered [nzData]="listCauHoi.data">
       <thead>
         <tr>
-          <th nzWidth="5%" nzAlign="center">STT</th>
-          <th nzWidth="45%" nzAlign="center">Câu hỏi<br><small>(Chỉ hiện 3 dòng đầu tiên)</small></th>
-          <th nzWidth="40%" nzAlign="center">Đáp án</th>
-          <th nzWidth="5%" nzAlign="center">Điểm</th>
-          <th nzWidth="5%" nzAlign="center"><i class="fas fa-cog"></i></th>
+          <th nzWidth="10%" nzAlign="center">STT</th>
+          <th nzWidth="40%" nzAlign="center">Câu hỏi<br><small>(Chỉ hiện 3 dòng đầu tiên)</small></th>
+          <th nzWidth="30%" nzAlign="center">Đáp án</th>
+          <th nzWidth="10%" nzAlign="center">Điểm</th>
+          <th nzWidth="10%" nzAlign="center"><i class="fas fa-cog"></i></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let cauHoi of listCauHoi.data; let i = index">
-          <td nzWidth="5%" nzAlign="center">
+          <td nzAlign="center">
             {{ i + 1 + (listCauHoi.currentPage-1)*listCauHoi.limit}}
           </td>
-          <td nzWidth="45%">
+          <td>
             <p class="no-mr-b quiz-admin-3-row" [innerHTML]="cauHoi.cauHoi | safeHtml"></p>
           </td>
-          <td nzWidth="40%">
+          <td>
             <ul class="no-bullet">
               <li *ngFor="let dapAn of cauHoi.dapAns">
-                <i class="far fa-check-square mr-right-5 text-green" *ngIf="dapAn.dapAnDung"></i>
+                <i class="far fa-check-square mr-right-5 text-green text-bold" *ngIf="dapAn.dapAnDung"></i>
                 <i class="far fa-square mr-right-5" *ngIf="!dapAn.dapAnDung"></i>
-                {{dapAn.noiDungCauTraLoi}}
+                <span [ngClass]="dapAn.dapAnDung ? 'text-green text-bold' : ''">{{dapAn.noiDungCauTraLoi}}</span>
               </li>
             </ul>
           </td>
-          <td nzWidth="5%" nzAlign="center">
+          <td nzAlign="center">
             {{cauHoi.diemSo}}
           </td>
-          <td nzWidth="5%" nzAlign="center">
-            <i class="fas fa-edit text-blue pointer" (click)="openFormTracNghiem(formTracNghiem, cauHoi)"></i>
+          <td nzAlign="center">
+            <i class="fas fa-edit text-blue pointer mr-right-5" (click)="openFormTracNghiem(formTracNghiem, cauHoi)"></i>
             <i class="fas fa-trash text-red pointer" (click)="deleteCauHoiTracNghiem(cauHoi.id)"></i>
           </td>
         </tr>

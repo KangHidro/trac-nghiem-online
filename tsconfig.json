@@ -5,7 +5,7 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist/trac-nghiem-online",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
