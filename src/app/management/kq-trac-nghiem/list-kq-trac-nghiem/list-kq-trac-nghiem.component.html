@@ -18,23 +18,27 @@
       <thead>
         <tr>
           <th nzWidth="10%" nzAlign="center">STT</th>
-          <th nzWidth="40%" nzAlign="center">Họ tên</th>
-          <th nzWidth="40%" nzAlign="center">Email</th>
+          <th nzWidth="30%" nzAlign="center">Họ tên</th>
+          <th nzWidth="30%" nzAlign="center">Email</th>
+          <th nzWidth="20%" nzAlign="center">Thời điểm hoàn thành</th>
           <th nzWidth="10%" nzAlign="center"><i class="fas fa-cog"></i></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let ketQua of listKetQuaTracNghiem.data; let i = index">
-          <td nzWidth="5%" nzAlign="center">
+          <td nzAlign="center">
             {{ i + 1 + (listKetQuaTracNghiem.currentPage-1)*listKetQuaTracNghiem.limit}}
           </td>
-          <td nzWidth="25%" nzAlign="left">
+          <td nzAlign="left">
             {{ketQua.user.name ? ketQua.user.name : '&lt;Chưa cập nhật&gt;'}}
           </td>
-          <td nzWidth="30%" nzAlign="left">
+          <td nzAlign="left">
             {{ketQua.user.email}}
           </td>
-          <td nzWidth="5%" nzAlign="center">
+          <td nzAlign="center">
+            {{ketQua.thoiGianTraLoi | date: 'HH:mm dd/MM/yyyy'}}
+          </td>
+          <td nzAlign="center">
             <i class="fas fa-clipboard-check text-blue pointer" (click)="openFormKetQua(formKetQua, ketQua)"></i>
           </td>
         </tr>

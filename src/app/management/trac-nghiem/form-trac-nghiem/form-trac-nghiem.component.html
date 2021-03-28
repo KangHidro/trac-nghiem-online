@@ -40,13 +40,13 @@
         </thead>
         <tbody>
           <tr *ngFor="let dapAn of listDapAnTemp; let i = index">
-            <td nzWidth="10%" nzAlign="center">
+            <td nzAlign="center">
               <label nz-checkbox [(ngModel)]="dapAn.dapAnDung" (ngModelChange)="changeDapAnDung(i, $event)" [ngModelOptions]="{standalone: true}"></label>
             </td>
-            <td nzWidth="80%" nzAlign="center">
+            <td nzAlign="center">
               <input nz-input type="text" class="w-100" [(ngModel)]="dapAn.noiDungCauTraLoi" [ngModelOptions]="{standalone: true}">
             </td>
-            <td nzWidth="10%" nzAlign="center"><i class="fas fa-trash text-red pointer" (click)="xoaDapAn(i)"></i></td>
+            <td nzAlign="center"><i class="fas fa-trash text-red pointer" (click)="xoaDapAn(i)"></i></td>
           </tr>
         </tbody>
       </nz-table>

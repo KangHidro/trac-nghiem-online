@@ -32,24 +32,24 @@
       </thead>
       <tbody>
         <tr *ngFor="let nguoiDung of listNguoiDung.data; let i = index">
-          <td nzWidth="5%" nzAlign="center">
+          <td nzAlign="center">
             {{ i + 1 + (listNguoiDung.currentPage-1)*listNguoiDung.limit}}
           </td>
-          <td nzWidth="25%" nzAlign="left">
+          <td nzAlign="left">
             {{nguoiDung.name ? nguoiDung.name : '&lt;Chưa cập nhật&gt;'}}
           </td>
-          <td nzWidth="30%" nzAlign="left">
+          <td nzAlign="left">
             {{nguoiDung.email}}
           </td>
-          <td nzWidth="25%" nzAlign="center">
+          <td nzAlign="center">
             <nz-tag nzColor="orange" *ngIf="nguoiDung.roles.includes('ROLE_ADMIN')">ADMIN</nz-tag>
             <nz-tag nzColor="blue" *ngIf="nguoiDung.roles.includes('ROLE_THI_SINH')">USER</nz-tag>
           </td>
-          <td nzWidth="10%" nzAlign="center">
+          <td nzAlign="center">
             <nz-tag nzColor="red" class="pointer" *ngIf="!nguoiDung.enable" (click)="changeStatusNguoiDung(nguoiDung.id)">Bị khoá</nz-tag>
             <nz-tag nzColor="green" class="pointer" *ngIf="nguoiDung.enable" (click)="changeStatusNguoiDung(nguoiDung.id)">Hoạt động</nz-tag>
           </td>
-          <td nzWidth="5%" nzAlign="center">
+          <td nzAlign="center">
             <i class="fas fa-edit text-blue pointer" (click)="openFormNguoiDung(formNguoiDung, nguoiDung)"></i>
           </td>
         </tr>
