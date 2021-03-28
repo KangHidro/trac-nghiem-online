@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor() {
+    console.log("%cRev. 21.0328.1", "background: #3f51b5; color: #fff; padding: 5px 10px;"); // Build 1735_TEST
+  }
 }
