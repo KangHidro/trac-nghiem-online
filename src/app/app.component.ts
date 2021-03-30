@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   constructor() {
-    console.log("%cRev. 21.0328.1", "background: #3f51b5; color: #fff; padding: 5px 10px;"); // Build 1735_TEST
+    console.log("%cRev. 21.0330.1", "background: #3f51b5; color: #fff; padding: 5px 10px;"); // Build 0930_TEST
   }
 }
