@@ -36,9 +36,11 @@ export class CauTraLoiCuaToiComponent implements OnInit {
     this.spinner.show();
     this.tracNghiemUserSvc.getKetQuaTracNghiemByEmail(this.userEmail)
     .subscribe(res => {
+      if (res) {
+        this.listKetQuaTracNghiemUser = res;
+        this.fullDiemTong = res.cauTraLois.reduce((sum, obj) => sum += obj.cauHoiTracNghiem.diemSo, 0);
+      }
       this.spinner.hide();
-      this.listKetQuaTracNghiemUser = res;
-      this.fullDiemTong = res.cauTraLois.reduce((sum, obj) => sum += obj.cauHoiTracNghiem.diemSo, 0);
     }, () => this.spinner.hide());
   }
 
