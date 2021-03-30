@@ -46,4 +46,4 @@ testem.log
 Thumbs.db
 
 # Github Pages
-./docs
+/docs
