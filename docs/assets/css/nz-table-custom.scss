@@ -1,0 +1,19 @@
+// Table mng
+tr.ant-table-row > th {
+  background: #e8e8e8 !important;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+.table-margin-bot {
+  margin-bottom: 10px !important;
+  .table-header{
+    font-weight: bold !important;
+  }
+}
+tr.ant-table-row > th, tr.ant-table-row > td {
+  border-color: #d3d3d3 !important;
+}
+// .ant-menu-inline-collapsed li i svg {
+//   font-size: 18px !important;
+// }
+// E: Table Mng
