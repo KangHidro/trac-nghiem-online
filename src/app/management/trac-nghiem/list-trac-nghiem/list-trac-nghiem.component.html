@@ -4,9 +4,18 @@
   </div>
 </div>
 <div nz-row [nzGutter]="16" class="mr-bot-10">
-  <div nz-col nzSpan="24" class="text-right mr-bot-5">
-    <button nz-button nzType="primary" type="button" (click)="openFormTracNghiem(formTracNghiem)">
-      <i class="fas fa-plus mr-right-5"></i>Thêm câu hỏi
+  <div nz-col nzSpan="14"></div>
+  <div nz-col nzSpan="6" class="text-right mr-bot-5">
+    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+      <input type="text" nz-input placeholder="Tìm kiếm" [(ngModel)]="valueSearch" [ngModelOptions]="{standalone: true}" (keyup.enter)="getDataPaging()" />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" nzSearch (click)="getDataPaging()"><i class="fas fa-search"></i></button>
+    </ng-template>
+  </div>
+  <div nz-col nzSpan="4" class="text-right mr-bot-5">
+    <button nz-button class="w-100" nzType="primary" type="button" (click)="openFormTracNghiem(formTracNghiem)">
+      <i class="fas fa-plus mr-right-5"></i>Thêm
     </button>
   </div>
   <div nz-col nzSpan="24">
